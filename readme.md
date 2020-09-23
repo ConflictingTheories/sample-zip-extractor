@@ -13,7 +13,9 @@ order
 
 
 ## Deployment & Build Instructions
-The following will help you deploy and build the application from source:
+The following will help you deploy and build the application from source (make sure the output folder is available - git doesn't copy empty folders):
+
+    # mkdir ./data
 
     # yarn
 
