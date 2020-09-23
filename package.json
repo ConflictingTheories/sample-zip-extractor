@@ -1,0 +1,19 @@
+{
+    "name": "sample-zip-extractor",
+    "description": "Sample Zip Extractor Demonstration for a Job Application",
+    "author": {
+        "name": "Kyle Derby MacInnis",
+        "email": "kyle@kderbyma.com",
+        "url": "https://kyledm.ca"
+    },
+    "scripts": {
+        "start": "node bin/App.js",
+        "serve": "node-ts src/App.ts",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "axios": "^0.20.0",
+        "node-ts": "^5.0.8",
+        "typescript": "^4.0.3"
+    }
+}
