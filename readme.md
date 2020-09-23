@@ -15,11 +15,18 @@ order
 ## Deployment & Build Instructions
 The following will help you deploy and build the application from source:
 
+    # yarn
 
+    # yarn build
 
 ## Usage Instructions
 Please see the following for usage instructions:
 
+    # yarn start
+
+Additionally, you can also run it using Typescript via `ts-node` via:
+
+    # yarn serve
 
 
 ## Copyright & Licenses
