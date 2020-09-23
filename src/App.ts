@@ -17,10 +17,14 @@
 import AppError from "./lib/Error";
 import ZipExtractor, { ZipEntry } from "./lib/ZipExtractor";
 import ImageTools from "./lib/ImageTools";
+import path from "path";
+import fs from "fs";
 
 // Zip Url
 const ZIP_URL =
   "https://downloads.campbellcloud.io/assessment/202009/Photos_To_Review.zip";
+
+const STORAGE_DIR = path.join(__dirname, "../data");
 
 // Main Application Class
 class Application {
@@ -44,7 +48,7 @@ class Application {
         const type = entry.type;
         const size = entry.vars.uncompressedSize;
         const isJpeg = fileName.match(/.jp[eg|g]$/i);
-        // If Jpeg Image
+        // Scan ISO Image Data if Jpeg Image
         if (type === "File" && isJpeg) {
           const iso = await ImageTools.getISO(entry);
           if (iso !== -1)
@@ -54,7 +58,8 @@ class Application {
               size: size,
             });
         }
-        entry.autodrain();
+        // Export to Local File Storage
+        entry.pipe(fs.createWriteStream(path.join(STORAGE_DIR, fileName)));
       }
       // Output Image Names (Sorted by ISO)
       console.log(`--> Finished Scanning Zip File Fetched from [${ZIP_URL}]:`);
