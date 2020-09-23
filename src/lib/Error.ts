@@ -73,14 +73,14 @@ class AppError {
   // Send Error to Front
   sendError(cb: any) {
     let errArr = this.clrError();
-    let msg = ["<h3>Error:</h3>"];
+    let msg = ["Error:\n"];
     let status = 500;
-    msg.push("<ul>");
+    msg.push("\n");
     for (let i of errArr) {
       status = i.status;
-      msg.push("<li>" + JSON.stringify(i) + "</li>");
+      msg.push("\t\t:: " + JSON.stringify(i) + "\n");
     }
-    msg.push("</ul>");
+    msg.push("\n");
     // Return Error
     cb(msg.join(""));
   }
